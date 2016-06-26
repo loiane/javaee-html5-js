@@ -1,0 +1,98 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel='stylesheet' href='http://mottie.github.com/tablesorter/css/theme.blue.css'>
+        <link rel='stylesheet' href='http://mottie.github.com/tablesorter/addons/pager/jquery.tablesorter.pager.css'>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js'></script>
+        <script src='http://mottie.github.com/tablesorter/js/jquery.tablesorter.js'></script>
+        <script src='http://mottie.github.com/tablesorter/addons/pager/jquery.tablesorter.pager.js'></script>
+        <script src='RestClient.js'></script>
+    </head>
+    <body>
+        <div id='create'></div>
+
+        <table id='datatable' class='tablesorter-blue'>
+        </table>
+        <div class='pager' id='pager'>
+            <img src='http://mottie.github.com/tablesorter/addons/pager/icons/first.png' class='first' alt='First'/>
+            <img src='http://mottie.github.com/tablesorter/addons/pager/icons/prev.png' class='prev' alt='Prev'/>
+            <span class='pagedisplay'></span> <!-- this can be any element, including an input -->
+            <img src='http://mottie.github.com/tablesorter/addons/pager/icons/next.png' class='next' alt='Next'/>
+            <img src='http://mottie.github.com/tablesorter/addons/pager/icons/last.png' class='last' alt='Last'/>
+            <select class='pagesize'>
+                <option selected='selected' value='10'>10</option>
+                <option value='20'>20</option>
+                <option value='30'>30</option>
+                <option value='40'>40</option>
+            </select>
+        </div>
+        <br>
+
+        <div id='details'></div>
+
+
+        <!-- Templates -->
+        <script type='text/template' id='tpl-create'>
+            <!--
+            Put your controls to create new entity here.
+
+            Class 'new' is used to listen on events in JS code.
+            -->
+            <button class='new'>Create</button>
+        </script>
+
+        <script type='text/template' id='thead'>
+            <thead>
+            <tr>
+            <th>id</th>
+            <th>phone</th>
+            <th>name</th>
+            <th>email</th>
+            </tr>
+            </thead>
+        </script>
+        <script type='text/template' id='tpl-contact-list-item'>
+            <td><a href='#<%= id %>'><%= id %></a></td>
+            <td><%= phone %></td>
+            <td><%= name %></td>
+            <td><%= email %></td>
+        </script>
+
+        <script type='text/template' id='tpl-contact-details'>
+            <div>
+            <table>
+            <tbody>
+            <tr><td>Id</td>
+            <td>
+            <input type='text' id='id' name='id' value='<%= typeof(id)!== "undefined" ? id : "" %>'  />
+            </td>
+            </tr>
+            <tr>
+            <td>phone</td><td><input type='text' id='phone' name='phone' value='<%= phone %>'/></td></tr>
+            <tr>
+            <td>name</td><td><input type='text' id='name' name='name' value='<%= name %>'/></td></tr>
+            <tr>
+            <td>email</td><td><input type='text' id='email' name='email' value='<%= email %>'/></td></tr>
+            </tbody>
+            </table>
+            <!--
+            Put your controls to create new entity here.
+            Classes 'save' and 'delete' are used to listen on events in JS code.
+            -->
+            <button  class='save'>Save</button>
+            <button  class='delete'>Delete</button>
+            </div>
+        </script>
+
+
+    </body>
+</html>
