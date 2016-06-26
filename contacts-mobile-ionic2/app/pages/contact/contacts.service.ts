@@ -7,8 +7,8 @@ export class ContactsService {
   constructor(private http: Http) { }
 
   getContacts() {
-  	//return this.http.get('data/contacts.json')
-    return this.http.get('http://localhost:8080/contacts-spring-mvc/contact/view.action?start=0&limit=250')
+  	return this.http.get('data/contacts.json')
+    //return this.http.get('http://loiane.local:8080/contacts-spring-mvc/contact/view.action?start=0&limit=250')
       .map((res: Response) => res.json().data);
   }
 }

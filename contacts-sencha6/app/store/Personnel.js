@@ -17,10 +17,10 @@ Ext.define('contacts.store.Personnel', {
     proxy: {
         type: 'ajax',
         api: {
-            read : 'localhost:8080/contacts-spring-mvc/contact/view.action',
-            create : 'localhost:8080/contacts-spring-mvc/contact/create.action',
-            update: 'localhost:8080/contacts-spring-mvc/contact/update.action',
-            destroy: 'localhost:8080/contacts-spring-mvc/contact/delete.action'
+            read : 'http://localhost:8080/contacts-spring-mvc/contact/view.action',
+            create : 'http://localhost:8080/contacts-spring-mvc/contact/create.action',
+            update: 'http://localhost:8080/contacts-spring-mvc/contact/update.action',
+            destroy: 'http://localhost:8080/contacts-spring-mvc/contact/delete.action'
         },
         reader: {
             type: 'json',
